@@ -9,9 +9,13 @@ If a .txt file is provided,
 each of the lines will be ran, eg:
 
 passwords.txt
+
 redfox2022
+
 thisistotallymypassword
+
 loremipsum,
+
 
 3 results will come out in the form of:
 
