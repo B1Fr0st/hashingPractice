@@ -1,9 +1,5 @@
 #hasher.py
-import hashlib,secrets,string
-
-def h256(hashStr:str) -> str:
-    """Easier way to hash a string using SHA-256"""
-    return hashlib.sha256(hashStr.encode("utf-8")).hexdigest()
+import hashlib,secrets,string,sys
 def saltPassword(password:str,saltLength:int=64) -> str:
     saltStr = ""
     for i in range(0,saltLength):
@@ -15,4 +11,14 @@ def hashPassword(password:str) -> str:
     Returns a salted and hashed password, along with the salt.
     """
     saltedPass = saltPassword(password)
-    return [h256(saltedPass[0]),saltedPass[1]]
+    return [hashlib.sha256(saltedPass[0].encode("utf-8")).hexdigest(),saltedPass[1]]
+if sys.argv:
+    for arg in range(1,len(sys.argv)):
+        if ".txt" in sys.argv[arg] == False:
+            print(hashPassword(sys.argv[arg]))
+        else:
+            with open(sys.argv[arg],"r") as passwords:
+                passwords = passwords.readlines()
+                for password in passwords:
+                    print(hashPassword(password))
+        
