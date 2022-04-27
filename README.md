@@ -20,7 +20,6 @@ loremipsum,
 3 results will come out in the form of:
 
 
-
 [hash,salt]
 
 [hash,salt]
