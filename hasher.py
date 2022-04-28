@@ -16,7 +16,7 @@ if sys.argv:
     for arg in range(1,len(sys.argv)):
         if ".txt" in sys.argv[arg] == False:
             print(hashPassword(sys.argv[arg]))
-        else:
+        elif ".txt" in sys.argv[arg]:
             with open(sys.argv[arg],"r") as passwords:
                 passwords = passwords.readlines()
                 for password in passwords:
